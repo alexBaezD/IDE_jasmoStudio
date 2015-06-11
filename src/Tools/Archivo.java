@@ -19,7 +19,7 @@ public class Archivo {
     
    
     /**
-	 * Objeto de la clase File que representa de 
+	 * Objeto de la clase File que representa la
          * forma abstracta a un archivo fisico en disco
 	 */
 	private File archivo;
