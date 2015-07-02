@@ -280,6 +280,7 @@ public class IDE extends javax.swing.JFrame implements SearchListener{
         jMenuItem15 = new javax.swing.JMenuItem();
         jMenuItem16 = new javax.swing.JMenuItem();
         jMenuItem17 = new javax.swing.JMenuItem();
+        jMenuItem20 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
@@ -649,6 +650,15 @@ public class IDE extends javax.swing.JFrame implements SearchListener{
         });
         jMenu3.add(jMenuItem17);
 
+        jMenuItem20.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem20.setText("Bits de Configuración");
+        jMenuItem20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                configuracionPIC(evt);
+            }
+        });
+        jMenu3.add(jMenuItem20);
+
         jMenuBar1.add(jMenu3);
 
         jMenu4.setBackground(new java.awt.Color(236, 240, 241));
@@ -985,6 +995,7 @@ public class IDE extends javax.swing.JFrame implements SearchListener{
         diagramaPIC16F887 d=new diagramaPIC16F887();
         d.setTitle("Diagrama del PIC16F887");
         d.setSize(800,570);
+        d.setLocationByPlatform(false);
         d.setResizable(false);
         d.setVisible(true);
         
@@ -1059,6 +1070,17 @@ public class IDE extends javax.swing.JFrame implements SearchListener{
         
     }//GEN-LAST:event_buscar_reemplazar
 
+    private void configuracionPIC(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configuracionPIC
+        // TODO add your handling code here:
+        
+        conf_bits c = new conf_bits();
+        c.setVisible(true);
+        c.setResizable(false);
+        c.setTitle("Bits de configuracion");
+        c.setSize(550,360);
+      
+    }//GEN-LAST:event_configuracionPIC
+
  
     public void ChangeTheme(String name){
         try {
@@ -1132,6 +1154,7 @@ public class IDE extends javax.swing.JFrame implements SearchListener{
     private javax.swing.JMenuItem jMenuItem18;
     private javax.swing.JMenuItem jMenuItem19;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem20;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
