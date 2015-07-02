@@ -1078,7 +1078,7 @@ public class IDE extends javax.swing.JFrame implements SearchListener{
         c.setResizable(false);
         c.setTitle("Bits de configuracion");
         c.setSize(550,360);
-      
+  
     }//GEN-LAST:event_configuracionPIC
 
  
@@ -1115,9 +1115,7 @@ public class IDE extends javax.swing.JFrame implements SearchListener{
     }
     
     
-    
-  
-    
+   
     
     
     
@@ -1173,7 +1171,7 @@ public class IDE extends javax.swing.JFrame implements SearchListener{
     private javax.swing.JToolBar.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
     private javax.swing.JPopupMenu.Separator jSeparator7;
-    private javax.swing.JTextArea jTextArea2;
+    public javax.swing.JTextArea jTextArea2;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 

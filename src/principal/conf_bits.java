@@ -14,9 +14,10 @@ public class conf_bits extends javax.swing.JFrame {
     /**
      * Creates new form conf_bits
      */
-    public conf_bits() {
+  public conf_bits() {
         initComponents();
         setLocationRelativeTo(null);
+       
     }
 
     /**
@@ -310,8 +311,6 @@ public class conf_bits extends javax.swing.JFrame {
         System.out.println(cadena);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
