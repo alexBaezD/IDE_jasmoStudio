@@ -10,12 +10,13 @@ package principal;
  * @author Carlos Vazquez Gomez
  */
 public class conf_bits extends javax.swing.JFrame {
-
+ private String cadena;
     /**
      * Creates new form conf_bits
      */
   public conf_bits() {
         initComponents();
+        cadena="";
         setLocationRelativeTo(null);
        
     }
@@ -294,21 +295,21 @@ public class conf_bits extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String cadena = "";
-        cadena+="#include <xc.h>";
-        cadena+="\n#pragma config "+jLabel2.getText()+" = "+jComboBox1.getSelectedItem();
-        cadena+="\n#pragma config "+jLabel6.getText()+" = "+jComboBox2.getSelectedItem();
-        cadena+="\n#pragma config "+jLabel4.getText()+" = "+jComboBox3.getSelectedItem();
-        cadena+="\n#pragma config "+jLabel8.getText()+" = "+jComboBox4.getSelectedItem();
-        cadena+="\n#pragma config "+jLabel10.getText()+" = "+jComboBox5.getSelectedItem();
-        cadena+="\n#pragma config "+jLabel12.getText()+" = "+jComboBox6.getSelectedItem();
-        cadena+="\n#pragma config "+jLabel14.getText()+" = "+jComboBox7.getSelectedItem();
-        cadena+="\n#pragma config "+jLabel16.getText()+" = "+jComboBox8.getSelectedItem();
-        cadena+="\n#pragma config "+jLabel8.getText()+" = "+jComboBox9.getSelectedItem();
-        cadena+="\n#pragma config "+jLabel20.getText()+" = "+jComboBox10.getSelectedItem();
-        cadena+="\n#pragma config "+jLabel22.getText()+" = "+jComboBox11.getSelectedItem();
-        cadena+="\n#pragma config "+jLabel24.getText()+" = "+jComboBox12.getSelectedItem();
-        System.out.println(cadena);
+       
+        setCadena(getCadena() + "#include <xc.h>");
+        setCadena(getCadena() + "\n#pragma config "+jLabel2.getText()+" = "+jComboBox1.getSelectedItem());
+        setCadena(getCadena() + "\n#pragma config "+jLabel6.getText()+" = "+jComboBox2.getSelectedItem());
+        setCadena(getCadena() + "\n#pragma config "+jLabel4.getText()+" = "+jComboBox3.getSelectedItem());
+        setCadena(getCadena() + "\n#pragma config "+jLabel8.getText()+" = "+jComboBox4.getSelectedItem());
+        setCadena(getCadena() + "\n#pragma config "+jLabel10.getText()+" = "+jComboBox5.getSelectedItem());
+        setCadena(getCadena() + "\n#pragma config "+jLabel12.getText()+" = "+jComboBox6.getSelectedItem());
+        setCadena(getCadena() + "\n#pragma config "+jLabel14.getText()+" = "+jComboBox7.getSelectedItem());
+        setCadena(getCadena() + "\n#pragma config "+jLabel16.getText()+" = "+jComboBox8.getSelectedItem());
+        setCadena(getCadena() + "\n#pragma config "+jLabel8.getText()+" = "+jComboBox9.getSelectedItem());
+        setCadena(getCadena() + "\n#pragma config "+jLabel20.getText()+" = "+jComboBox10.getSelectedItem());
+        setCadena(getCadena() + "\n#pragma config "+jLabel22.getText()+" = "+jComboBox11.getSelectedItem());
+        setCadena(getCadena() + "\n#pragma config "+jLabel24.getText()+" = "+jComboBox12.getSelectedItem());
+        System.out.println(getCadena());
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -360,4 +361,18 @@ public class conf_bits extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the cadena
+     */
+    public String getCadena() {
+        return cadena;
+    }
+
+    /**
+     * @param cadena the cadena to set
+     */
+    public void setCadena(String cadena) {
+        this.cadena = cadena;
+    }
 }

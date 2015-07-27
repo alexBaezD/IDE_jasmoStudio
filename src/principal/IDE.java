@@ -36,7 +36,6 @@ import org.fife.ui.autocomplete.AutoCompletion;
 import org.fife.ui.autocomplete.BasicCompletion;
 import org.fife.ui.autocomplete.CompletionProvider;
 import org.fife.ui.autocomplete.DefaultCompletionProvider;
-import org.fife.ui.autocomplete.ShorthandCompletion;
 import org.fife.ui.rsyntaxtextarea.AbstractTokenMakerFactory;
 import org.fife.ui.rsyntaxtextarea.CodeTemplateManager;
 import org.fife.ui.rsyntaxtextarea.ErrorStrip;
@@ -102,6 +101,7 @@ public class IDE extends javax.swing.JFrame implements SearchListener{
         AreaCode.setCodeFoldingEnabled(true);
         AreaCode.setMarkOccurrences(true);
         AreaCode.setAntiAliasingEnabled(true);
+        ChangeTheme("DEFAULT");    
         AreaCode.setFont(new Font("Lucida Grande", 0, 18));
         AreaCode.addCaretListener(new CaretListener(){
         @Override
@@ -121,6 +121,12 @@ public class IDE extends javax.swing.JFrame implements SearchListener{
         RTextScrollPane sp = new RTextScrollPane(AreaCode);
         CompletionProvider provider = createCompletionProvider();
         AutoCompletion ac = new AutoCompletion(provider);
+       
+        ac.setAutoActivationEnabled(true);
+        ac.setParameterAssistanceEnabled(true);
+        ac.setShowDescWindow(false);
+        ac.setAutoCompleteSingleChoices(false);
+        ac.setChoicesWindowSize(300, 150);
         ac.install(AreaCode);
         sp.setFoldIndicatorEnabled(true);
         createCodeTemplate();
@@ -163,6 +169,18 @@ public class IDE extends javax.swing.JFrame implements SearchListener{
       RSyntaxTextArea.setTemplatesEnabled(true);
       CodeTemplateManager ctm = RSyntaxTextArea.getCodeTemplateManager();
 
+      CodeTemplate cuerpo = new StaticCodeTemplate("mapic", "Fuses\n" +
+                    "\n" 
+                    ,"\tSetup {\n" +
+                    "\n" +
+                    "\t}\n\n" +
+                    "\tCiclo {\n" +
+                    "\n" +
+                    "\t}\n\n" +
+                    "\tMain {\n" +
+                    "\n" +
+                    "\t}");
+      ctm.addTemplate(cuerpo);
       CodeTemplate ct = new StaticCodeTemplate("mtd", "Void ","() {\n\n}");
       ctm.addTemplate(ct);
       
@@ -184,7 +202,8 @@ public class IDE extends javax.swing.JFrame implements SearchListener{
 
      
       DefaultCompletionProvider provider = new DefaultCompletionProvider();
-      provider.addCompletion(new BasicCompletion(provider, "TimeMS"));
+      provider.setAutoActivationRules(true, ".");
+      provider.addCompletion(new BasicCompletion(provider, "TimeMS(time);"));
       provider.addCompletion(new BasicCompletion(provider, "Main"));
       provider.addCompletion(new BasicCompletion(provider, "Setup"));
       provider.addCompletion(new BasicCompletion(provider, "Fuses"));
@@ -209,15 +228,132 @@ public class IDE extends javax.swing.JFrame implements SearchListener{
       provider.addCompletion(new BasicCompletion(provider, "OR"));
       provider.addCompletion(new BasicCompletion(provider, "true"));
       provider.addCompletion(new BasicCompletion(provider, "false"));
-      provider.addCompletion(new BasicCompletion(provider, "Integer"));
-      provider.addCompletion(new BasicCompletion(provider, "Real"));
+      provider.addCompletion(new BasicCompletion(provider, "Int"));
+      provider.addCompletion(new BasicCompletion(provider, "Float"));
+      provider.addCompletion(new BasicCompletion(provider, "Char"));
       provider.addCompletion(new BasicCompletion(provider, "Boolean"));
       provider.addCompletion(new BasicCompletion(provider, "return"));
-      provider.addCompletion(new ShorthandCompletion(provider, "Si",
-            "Si(", "Si()"));
-      provider.addCompletion(new ShorthandCompletion(provider, "Void",
-            "Void (){\n}", "Void (){}"));
+      provider.addCompletion(new BasicCompletion(provider, "PA"));
+      provider.addCompletion(new BasicCompletion(provider, "PB"));
+      provider.addCompletion(new BasicCompletion(provider, "PC"));
+      provider.addCompletion(new BasicCompletion(provider, "PD"));
+      provider.addCompletion(new BasicCompletion(provider, "PE"));
+      provider.addCompletion(new BasicCompletion(provider, "TA"));
+      provider.addCompletion(new BasicCompletion(provider, "TB"));
+      provider.addCompletion(new BasicCompletion(provider, "TC" ));
+      provider.addCompletion(new BasicCompletion(provider, "TD" ));
+      provider.addCompletion(new BasicCompletion(provider, "TE" ));
+      provider.addCompletion(new BasicCompletion(provider, "ANSEL"));
+      provider.addCompletion(new BasicCompletion(provider, "ANSELH" ));
+      provider.addCompletion(new BasicCompletion(provider, "INTCON"));
 
+      provider.addCompletion(new BasicCompletion(provider, "TA0"));
+      provider.addCompletion(new BasicCompletion(provider, "TA1"));
+      provider.addCompletion(new BasicCompletion(provider, "TA2"));
+      provider.addCompletion(new BasicCompletion(provider, "TA3"));
+      provider.addCompletion(new BasicCompletion(provider, "TA4"));
+      provider.addCompletion(new BasicCompletion(provider, "TA5"));
+      provider.addCompletion(new BasicCompletion(provider, "TA6"));
+      provider.addCompletion(new BasicCompletion(provider, "TA7"));
+
+      provider.addCompletion(new BasicCompletion(provider, "TB0"));
+      provider.addCompletion(new BasicCompletion(provider, "TB1"));
+      provider.addCompletion(new BasicCompletion(provider, "TB2"));
+      provider.addCompletion(new BasicCompletion(provider, "TB3"));
+      provider.addCompletion(new BasicCompletion(provider, "TB4"));
+      provider.addCompletion(new BasicCompletion(provider, "TB5"));
+      provider.addCompletion(new BasicCompletion(provider, "TB6"));
+      provider.addCompletion(new BasicCompletion(provider, "TB7"));
+
+      provider.addCompletion(new BasicCompletion(provider,"TC0"));
+      provider.addCompletion(new BasicCompletion(provider,"TC1"));
+      provider.addCompletion(new BasicCompletion(provider,"TC2"));
+      provider.addCompletion(new BasicCompletion(provider,"TC3"));
+      provider.addCompletion(new BasicCompletion(provider,"TC4"));
+      provider.addCompletion(new BasicCompletion(provider,"TC5"));
+      provider.addCompletion(new BasicCompletion(provider,"TC6"));
+      provider.addCompletion(new BasicCompletion(provider,"TC7"));
+            
+      provider.addCompletion(new BasicCompletion(provider,"TD0"));
+      provider.addCompletion(new BasicCompletion(provider,"TD1"));
+      provider.addCompletion(new BasicCompletion(provider,"TD2"));
+      provider.addCompletion(new BasicCompletion(provider,"TD3"));
+      provider.addCompletion(new BasicCompletion(provider,"TD4"));
+      provider.addCompletion(new BasicCompletion(provider,"TD5"));
+      provider.addCompletion(new BasicCompletion(provider,"TD6"));
+      provider.addCompletion(new BasicCompletion(provider,"TD7"));
+
+      provider.addCompletion(new BasicCompletion(provider,"TE0"));
+      provider.addCompletion(new BasicCompletion(provider,"TE1"));
+      provider.addCompletion(new BasicCompletion(provider,"TE2"));
+      provider.addCompletion(new BasicCompletion(provider,"TE3"));
+
+      provider.addCompletion(new BasicCompletion(provider, "PA0" ));
+      provider.addCompletion(new BasicCompletion(provider, "PA1" ));
+      provider.addCompletion(new BasicCompletion(provider, "PA2" ));
+      provider.addCompletion(new BasicCompletion(provider, "PA3" ));
+      provider.addCompletion(new BasicCompletion(provider, "PA4" ));
+      provider.addCompletion(new BasicCompletion(provider, "PA5" ));
+      provider.addCompletion(new BasicCompletion(provider, "PA6" ));
+      provider.addCompletion(new BasicCompletion(provider, "PA7" ));
+       
+      provider.addCompletion(new BasicCompletion(provider,"PB0"  ));
+      provider.addCompletion(new BasicCompletion(provider,"PB1"  ));
+      provider.addCompletion(new BasicCompletion(provider,"PB2"  ));
+      provider.addCompletion(new BasicCompletion(provider,"PB3"  ));
+      provider.addCompletion(new BasicCompletion(provider,"PB4"  ));
+      provider.addCompletion(new BasicCompletion(provider,"PB5"  ));
+      provider.addCompletion(new BasicCompletion(provider,"PB6"  ));
+      provider.addCompletion(new BasicCompletion(provider,"PB7"  ));
+       
+      provider.addCompletion(new BasicCompletion(provider, "PC0" ));
+      provider.addCompletion(new BasicCompletion(provider, "PC1" ));
+      provider.addCompletion(new BasicCompletion(provider, "PC2" ));
+      provider.addCompletion(new BasicCompletion(provider, "PC3" ));
+      provider.addCompletion(new BasicCompletion(provider, "PC4" ));
+      provider.addCompletion(new BasicCompletion(provider, "PC5" ));
+      provider.addCompletion(new BasicCompletion(provider, "PC6" ));
+      provider.addCompletion(new BasicCompletion(provider, "PC7" ));
+       
+      provider.addCompletion(new BasicCompletion(provider, "PD0" ));
+      provider.addCompletion(new BasicCompletion(provider, "PD1" ));
+      provider.addCompletion(new BasicCompletion(provider, "PD2" ));
+      provider.addCompletion(new BasicCompletion(provider, "PD3" ));
+      provider.addCompletion(new BasicCompletion(provider, "PD4" ));
+      provider.addCompletion(new BasicCompletion(provider, "PD5" ));
+      provider.addCompletion(new BasicCompletion(provider, "PD6" ));
+      provider.addCompletion(new BasicCompletion(provider, "PD7" ));
+       
+ 		  provider.addCompletion(new BasicCompletion(provider, "PE0" ));
+      provider.addCompletion(new BasicCompletion(provider, "PE1" ));
+      provider.addCompletion(new BasicCompletion(provider, "PE2" ));
+      provider.addCompletion(new BasicCompletion(provider, "PE3" ));
+
+      provider.addCompletion(new BasicCompletion(provider,"ANSEL0"  ));
+      provider.addCompletion(new BasicCompletion(provider,"ANSEL1"  ));
+      provider.addCompletion(new BasicCompletion(provider,"ANSEL2"  ));
+      provider.addCompletion(new BasicCompletion(provider,"ANSEL3"  ));
+      provider.addCompletion(new BasicCompletion(provider,"ANSEL4"  ));
+      provider.addCompletion(new BasicCompletion(provider,"ANSEL5"  ));
+      provider.addCompletion(new BasicCompletion(provider,"ANSEL6"  ));
+      provider.addCompletion(new BasicCompletion(provider,"ANSEL7"  ));
+		
+      provider.addCompletion(new BasicCompletion(provider,"ANSELH0"  ));
+      provider.addCompletion(new BasicCompletion(provider,"ANSELH1"  ));
+      provider.addCompletion(new BasicCompletion(provider,"ANSELH2"  ));
+      provider.addCompletion(new BasicCompletion(provider,"ANSELH3"  ));
+      provider.addCompletion(new BasicCompletion(provider,"ANSELH4"  ));
+      provider.addCompletion(new BasicCompletion(provider,"ANSELH5"  ));
+    
+      
+      provider.addCompletion(new BasicCompletion(provider,"INTCONGIE"   ));
+      provider.addCompletion(new BasicCompletion(provider,"INTCONPEIE"  ));
+      provider.addCompletion(new BasicCompletion(provider,"INTCONT0IE"  ));
+      provider.addCompletion(new BasicCompletion(provider,"INTCONINTE"  ));
+      provider.addCompletion(new BasicCompletion(provider,"INTCONRBIE"  ));
+      provider.addCompletion(new BasicCompletion(provider,"INTCONT0IF"  ));
+      provider.addCompletion(new BasicCompletion(provider,"INTCONINTF"  ));
+      provider.addCompletion(new BasicCompletion(provider,"INTCONRBIF"  ));
       return provider;
 
    }
@@ -278,6 +414,7 @@ public class IDE extends javax.swing.JFrame implements SearchListener{
         jMenuItem13 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
         jMenuItem15 = new javax.swing.JMenuItem();
+        jMenuItem21 = new javax.swing.JMenuItem();
         jMenuItem16 = new javax.swing.JMenuItem();
         jMenuItem17 = new javax.swing.JMenuItem();
         jMenuItem20 = new javax.swing.JMenuItem();
@@ -433,7 +570,7 @@ public class IDE extends javax.swing.JFrame implements SearchListener{
         jTextArea2.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jTextArea2.setForeground(new java.awt.Color(0, 102, 51));
         jTextArea2.setRows(5);
-        jTextArea2.setText("Build: 0.0.0.0 Segundos");
+        jTextArea2.setText("Jasmo Studio: 0.0.0.0 Segundos");
         jScrollPane3.setViewportView(jTextArea2);
 
         jPanel2.add(jScrollPane3, java.awt.BorderLayout.CENTER);
@@ -612,7 +749,7 @@ public class IDE extends javax.swing.JFrame implements SearchListener{
         });
         jMenu5.add(jMenuItem13);
 
-        jMenuItem14.setText("Blanco");
+        jMenuItem14.setText("Pink");
         jMenuItem14.setToolTipText("Tema Blanco");
         jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -629,6 +766,14 @@ public class IDE extends javax.swing.JFrame implements SearchListener{
             }
         });
         jMenu5.add(jMenuItem15);
+
+        jMenuItem21.setText("Mapic");
+        jMenuItem21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem21ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem21);
 
         jMenu3.add(jMenu5);
 
@@ -690,32 +835,17 @@ public class IDE extends javax.swing.JFrame implements SearchListener{
 
     private void abrirArchivo(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abrirArchivo
         // TODO add your handling code here:
-         String rutaArchivo = "";
-        String rutaEspacio="";
-     try
-        {
-        FileReader lector=new FileReader("Espacio.txt");
-        BufferedReader contenido2=new BufferedReader(lector);
-         while((rutaEspacio=contenido2.readLine())!=null)
-                {
-                 
-                rutaArchivo=rutaEspacio;
-               }
-         
-       }
- catch(Exception e)
-        {System.out.println("Error al leer espacio de trabajo");
-        }
-     System.out.println(rutaArchivo);
-     
-     File f2=new File(rutaArchivo);
+     String contenido = "";
+     String x = System.getProperty("user.home");
+     File f2=new File(x+"\\MapicProjects");
      JFileChooser fc = new JFileChooser();
+      System.out.println(f2.getAbsoluteFile());
                     fc.setCurrentDirectory(f2);
 		if(fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
 			File f = fc.getSelectedFile();
-			String contenido = "";
+			
 			try {
-                            rutaCH=rutaArchivo;
+                            
 			contenido = editor.abrirArchivo(f.getAbsolutePath());
                                 nombreArchivo=fc.getSelectedFile().getName();
 				AreaCode.setText(contenido);
@@ -741,27 +871,10 @@ public class IDE extends javax.swing.JFrame implements SearchListener{
 
     private void guardar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardar
         // TODO add your handling code here:
-        
+        String x = System.getProperty("user.home");
         String contenido = "";
         String rutaArchivo = "";
-        String rutaEspacio="";
-     try
-        {
-        FileReader lector=new FileReader("Espacio.txt");
-        BufferedReader contenido2=new BufferedReader(lector);
-         while((rutaEspacio=contenido2.readLine())!=null)
-                {
-                 
-                rutaArchivo=rutaEspacio;
-               }
-         
-       }
- catch(Exception e)
-        {System.out.println("Error al leer espacio de trabajo");
-        }
-     System.out.println(rutaArchivo);
-     rutaEs=rutaArchivo;
-	File f=new File(rutaArchivo);
+        File f=new File(x+"\\MapicProjects");
      if( editor.esArchivoNuevo() ) {
 			JFileChooser fc = new JFileChooser();
                         fc.setCurrentDirectory(f);
@@ -936,14 +1049,11 @@ public class IDE extends javax.swing.JFrame implements SearchListener{
 
     private void ver_ocultarBarraHerramientas(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ver_ocultarBarraHerramientas
         // TODO add your handling code here:
-        jMenuItem10.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                if(jToolBar1.isVisible())
-                    jToolBar1.setVisible(false);
-                else
-                    jToolBar1.setVisible(true);
-            }
+        jMenuItem10.addActionListener((ActionEvent evt1) -> {
+            if(jToolBar1.isVisible())
+                jToolBar1.setVisible(false);
+            else
+                jToolBar1.setVisible(true);
         });
     }//GEN-LAST:event_ver_ocultarBarraHerramientas
 
@@ -1081,6 +1191,11 @@ public class IDE extends javax.swing.JFrame implements SearchListener{
   
     }//GEN-LAST:event_configuracionPIC
 
+    private void jMenuItem21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem21ActionPerformed
+        // TODO add your handling code here:
+         ChangeTheme("DARK2");
+    }//GEN-LAST:event_jMenuItem21ActionPerformed
+
  
     public void ChangeTheme(String name){
         try {
@@ -1099,12 +1214,17 @@ public class IDE extends javax.swing.JFrame implements SearchListener{
                 break;
             case "WHITE":
                 theme = Theme.load(getClass().getResourceAsStream(
-               "/org/fife/ui/rsyntaxtextarea/themes/idea.xml"));
+               "/org/fife/ui/rsyntaxtextarea/themes/map.xml"));
                  theme.apply(AreaCode);
                 break;
             case "DEFAULT":
                 theme = Theme.load(getClass().getResourceAsStream(
                "/org/fife/ui/rsyntaxtextarea/themes/default.xml"));
+                 theme.apply(AreaCode);
+                break;
+            case "DARK2":
+                theme = Theme.load(getClass().getResourceAsStream(
+               "/org/fife/ui/rsyntaxtextarea/themes/intenso.xml"));
                  theme.apply(AreaCode);
                 break;
         } 
@@ -1153,6 +1273,7 @@ public class IDE extends javax.swing.JFrame implements SearchListener{
     private javax.swing.JMenuItem jMenuItem19;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem20;
+    private javax.swing.JMenuItem jMenuItem21;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;

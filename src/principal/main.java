@@ -5,6 +5,7 @@
  */
 package principal;
 
+import java.io.File;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -34,9 +35,16 @@ public class main {
                 System.out.println(ex.getMessage());
             }
         }
-          
-      
-      /**
+      /*
+       Carpera de trabajo con jasmo studio
+      c:/user/suNombre/MapicProjects
+      */
+      String x = System.getProperty("user.home");
+      File n = new File (x+"\\MapicProjects");
+      if(!n.exists())
+         n.mkdir();
+
+      /*
        **Crear instancia de la vista de Cargar
        * Con un tamaño predefinido y un Hilo que duerme 
        * el proceso por 5000 milisegundos
@@ -48,16 +56,15 @@ public class main {
         c.setVisible(true);
         Thread.sleep(5000);
         c.dispose();
-                 
-       /**
-        * Instancia de la Clase workspace
-        * Para que aparesca la vista donde se ,
-        * selecciona el espacio de trabajo.
-        */
-        workspace w=new workspace();
-        w.setSize(600, 320);
-        w.setVisible(true);
-        w.setResizable(false);
+        
+        
+        IDE i =new IDE();
+        i.setLocationRelativeTo(null);
+        String m=System.getProperty("user.name");
+        i.setTitle("Jasmo-Studio    Usuario: "+m+"  , Espacio de Trabajo " +x+"\\MapicProjects   , Modelo: PIC16F887");
+        i.setSize(915, 680);
+        i.setVisible(true);
+      
      }
     
     

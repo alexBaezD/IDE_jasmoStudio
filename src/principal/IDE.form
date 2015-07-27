@@ -225,7 +225,7 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem14">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Blanco"/>
+                    <Property name="text" type="java.lang.String" value="Pink"/>
                     <Property name="toolTipText" type="java.lang.String" value="Tema Blanco"/>
                   </Properties>
                   <Events>
@@ -239,6 +239,14 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aplicarTemaMonaki"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem21">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Mapic"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem21ActionPerformed"/>
                   </Events>
                 </MenuItem>
               </SubComponents>
@@ -575,7 +583,7 @@
                   <Color blue="33" green="66" red="0" type="rgb"/>
                 </Property>
                 <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="Build: 0.0.0.0 Segundos"/>
+                <Property name="text" type="java.lang.String" value="Jasmo Studio: 0.0.0.0 Segundos"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

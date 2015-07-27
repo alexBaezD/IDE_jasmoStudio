@@ -40,7 +40,7 @@ public class carga extends javax.swing.JFrame {
         getContentPane().add(contents, BorderLayout.CENTER);
         setLocationRelativeTo(null);
         progreso p =new progreso();
-        timer =new Timer(40,p);
+        timer =new Timer(30,p);
         timer.start();
       
     }
