@@ -942,6 +942,7 @@ public class IDE extends javax.swing.JFrame implements SearchListener{
     private void compilacion(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compilacion
         // TODO add your handling code here:
         guardar(evt);
+        jTextArea2.setText(" ");
         Compilar Jasmo=new Compilar();
         Jasmo.compilar(editor.ObtenerDIreccion(),editor.ObtenerDireccionCarpeta()+"\\");
       String contenido="";
