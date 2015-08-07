@@ -1081,7 +1081,7 @@ public class IDE extends javax.swing.JFrame implements SearchListener{
     private void abrirAyuda(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abrirAyuda
         
     try {
-            File objetofile = new File ("mapic-ayuda/jasmo.html");
+            File objetofile = new File ("mapic-ayuda/index.html");
             Desktop.getDesktop().open(objetofile);
         }catch (IOException ex) {
              System.out.println(ex.getMessage());
